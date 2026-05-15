@@ -506,8 +506,8 @@ docker run --rm \
 
 ## Still unresolved?
 
-1. **GitHub Issues:** [Report issue](https://github.com/stackvo/stackvo/issues/new)
-2. **Discussions:** [Join discussions](https://github.com/stackvo/stackvo/discussions)
+1. **GitHub Issues:** [Report issue](https://github.com/fahrettinaksoy/stackvo/issues/new)
+2. **Discussions:** [Join discussions](https://github.com/fahrettinaksoy/stackvo/discussions)
 3. **Support:** [Get support](support.md)
 
 **When opening an Issue:**

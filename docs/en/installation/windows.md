@@ -101,7 +101,7 @@ After Docker Desktop installation is complete, follow the [Quick Start](../start
 
 ```bash
 # Inside WSL2
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # Configuration

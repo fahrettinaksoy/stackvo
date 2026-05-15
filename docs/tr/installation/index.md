@@ -54,7 +54,7 @@ Sisteminizde Docker zaten kuruluysa:
 
 ```bash
 # 1. Repository'yi klonlayın
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # 2. Konfigürasyon

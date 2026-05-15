@@ -125,7 +125,7 @@ After Docker installation is complete, follow the [Quick Start](../started/quick
 
 ```bash
 # Clone repository
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # Configuration

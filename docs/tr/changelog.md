@@ -157,7 +157,7 @@ Format [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) standardına day
 
 ## Bağlantılar
 
-- [GitHub Repository](https://github.com/stackvo/stackvo)
+- [GitHub Repository](https://github.com/fahrettinaksoy/stackvo)
 - [Dokümantasyon](https://stackvo.github.io/stackvo/)
-- [Sorunlar](https://github.com/stackvo/stackvo/issues)
-- [Sürümler](https://github.com/stackvo/stackvo/releases)
+- [Sorunlar](https://github.com/fahrettinaksoy/stackvo/issues)
+- [Sürümler](https://github.com/fahrettinaksoy/stackvo/releases)

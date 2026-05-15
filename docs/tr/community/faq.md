@@ -350,6 +350,6 @@ Evet, `stackvo.json` dosyasında:
 
 ## Hala Sorunuz mu Var?
 
-- [GitHub Discussions](https://github.com/stackvo/stackvo/discussions)
-- [GitHub Issues](https://github.com/stackvo/stackvo/issues)
+- [GitHub Discussions](https://github.com/fahrettinaksoy/stackvo/discussions)
+- [GitHub Issues](https://github.com/fahrettinaksoy/stackvo/issues)
 - [Support](support.md)

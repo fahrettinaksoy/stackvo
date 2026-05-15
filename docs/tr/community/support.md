@@ -10,7 +10,7 @@ Stackvo için destek alma yolları. Bu sayfa, GitHub Discussions, GitHub Issues 
 
 **En iyi seçenek:** Soru sormak, fikir paylaşmak, tartışmak için.
 
-[💬 Discussions'a git →](https://github.com/stackvo/stackvo/discussions)
+[💬 Discussions'a git →](https://github.com/fahrettinaksoy/stackvo/discussions)
 
 **Kategoriler:**
 - 💡 **Ideas** - Özellik önerileri
@@ -22,7 +22,7 @@ Stackvo için destek alma yolları. Bu sayfa, GitHub Discussions, GitHub Issues 
 
 **Bug reports ve feature requests için.**
 
-[Issue aç →](https://github.com/stackvo/stackvo/issues/new)
+[Issue aç →](https://github.com/fahrettinaksoy/stackvo/issues/new)
 
 **Ne zaman kullanılır:**
 - Bug bulduğunuzda
@@ -255,13 +255,13 @@ Stackvo'a katkıda bulunmak ister misiniz?
     
     GitHub Issues
     
-    [Issues →](https://github.com/stackvo/stackvo/issues)
+    [Issues →](https://github.com/fahrettinaksoy/stackvo/issues)
 
 -   **💬 Discussions**
     
     Aktif tartışmalar
     
-    [Discussions →](https://github.com/stackvo/stackvo/discussions)
+    [Discussions →](https://github.com/fahrettinaksoy/stackvo/discussions)
 
 -   **👥 Contributors**
     
@@ -303,10 +303,10 @@ Stackvo'a katkıda bulunmak ister misiniz?
 
 ### GitHub
 
-- **Repository:** [stackvo/stackvo](https://github.com/stackvo/stackvo)
-- **Issues:** [Bug reports](https://github.com/stackvo/stackvo/issues)
-- **Discussions:** [Q&A](https://github.com/stackvo/stackvo/discussions)
-- **Pull Requests:** [Contributions](https://github.com/stackvo/stackvo/pulls)
+- **Repository:** [fahrettinaksoy/stackvo](https://github.com/fahrettinaksoy/stackvo)
+- **Issues:** [Bug reports](https://github.com/fahrettinaksoy/stackvo/issues)
+- **Discussions:** [Q&A](https://github.com/fahrettinaksoy/stackvo/discussions)
+- **Pull Requests:** [Contributions](https://github.com/fahrettinaksoy/stackvo/pulls)
 
 ### Email
 

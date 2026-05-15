@@ -99,7 +99,7 @@ Docker Desktop kurulumu tamamlandıktan sonra Stackvo'u kurmak için [Hızlı Ba
 
 ```bash
 # Repository klonla
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # Konfigürasyon

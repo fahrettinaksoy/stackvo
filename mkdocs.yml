@@ -5,8 +5,8 @@ site_author: StackVo Team
 site_url: https://stackvo.github.io/stackvo/
 
 # Repository
-repo_name: stackvo/stackvo
-repo_url: https://github.com/stackvo/stackvo
+repo_name: fahrettinaksoy/stackvo
+repo_url: https://github.com/fahrettinaksoy/stackvo
 edit_uri: edit/main/docs/
 
 # Copyright
@@ -253,7 +253,7 @@ extra:
       lang: tr
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/stackvo/stackvo
+      link: https://github.com/fahrettinaksoy/stackvo
       name: GitHub'da Stackvo
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/u/stackvo

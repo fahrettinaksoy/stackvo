@@ -9,7 +9,7 @@ Stackvo'a katkıda bulunmak için teşekkürler! 🎉 Bu kılavuz, repository fo
 ### 1. Repository'yi Fork Edin
 
 ```bash
-# Fork edin: https://github.com/stackvo/stackvo/fork
+# Fork edin: https://github.com/fahrettinaksoy/stackvo/fork
 
 # Clone edin
 git clone https://github.com/YOUR_USERNAME/stackvo.git
@@ -272,11 +272,11 @@ Contributors:
 ## İletişim
 
 Sorularınız için:
-- **GitHub Discussions:** [Tartışmalara katıl](https://github.com/stackvo/stackvo/discussions)
-- **Issues:** [Soru sor](https://github.com/stackvo/stackvo/issues/new)
+- **GitHub Discussions:** [Tartışmalara katıl](https://github.com/fahrettinaksoy/stackvo/discussions)
+- **Issues:** [Soru sor](https://github.com/fahrettinaksoy/stackvo/issues/new)
 
 ---
 
 ## License
 
-Katkılarınız [MIT License](https://github.com/stackvo/stackvo/blob/main/LICENSE) altında yayınlanır.
+Katkılarınız [MIT License](https://github.com/fahrettinaksoy/stackvo/blob/main/LICENSE) altında yayınlanır.

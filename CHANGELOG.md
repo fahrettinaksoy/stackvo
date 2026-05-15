@@ -7,19 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [Unreleased]
-
-### Changed
-
-- **BREAKING**: Stackvo UI is now part of the monorepo at `core/ui/` and built locally; the separate `stackvo-ui` repository and the `stackvo/stackvo-ui` Docker Hub image are no longer used.
-- `STACKVO_UI_VERSION` env variable removed — UI is built on demand from `core/ui/Dockerfile`.
-
-### Removed
-
-- External dependency on `stackvo/stackvo-ui:*` Docker Hub image.
-
----
-
 ## [1.0.18] - 2026-02-03
 
 ### Fixed

@@ -5,11 +5,11 @@
 **Docker-Based Local Development Environment for Modern LAMP and MEAN Stacks**
 
 ![Status](https://img.shields.io/badge/status-active-success.svg)
-![Release](https://img.shields.io/github/v/release/stackvo/stackvo)
-![GitHub Issues](https://img.shields.io/github/issues/stackvo/stackvo)
-![GitHub Closed Issues](https://img.shields.io/github/issues-closed/stackvo/stackvo)
-![GitHub Pull Requests](https://img.shields.io/github/issues-pr/stackvo/stackvo)
-![GitHub Contributors](https://img.shields.io/github/contributors/stackvo/stackvo)
+![Release](https://img.shields.io/github/v/release/fahrettinaksoy/stackvo)
+![GitHub Issues](https://img.shields.io/github/issues/fahrettinaksoy/stackvo)
+![GitHub Closed Issues](https://img.shields.io/github/issues-closed/fahrettinaksoy/stackvo)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fahrettinaksoy/stackvo)
+![GitHub Contributors](https://img.shields.io/github/contributors/fahrettinaksoy/stackvo)
 ![Security](https://img.shields.io/badge/security-policy-success?logo=security&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -71,7 +71,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # Copy environment file
@@ -228,31 +228,31 @@ Stackvo provides a modern web interface built with Vue.js 3 and Vuetify 3:
 <table>
   <tr>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/1-Dashboard.png?raw=true" alt="Dashboard" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/1-Dashboard.png?raw=true" alt="Dashboard" />
       <p align="center"><b>Dashboard</b></p>
     </td>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/2-Projects-list.png?raw=true" alt="Projects List" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/2-Projects-list.png?raw=true" alt="Projects List" />
       <p align="center"><b>Projects List</b></p>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/3-Projects-detail.png?raw=true" alt="Project Detail" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/3-Projects-detail.png?raw=true" alt="Project Detail" />
       <p align="center"><b>Project Detail</b></p>
     </td>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/4-Projects-new.png?raw=true" alt="New Project" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/4-Projects-new.png?raw=true" alt="New Project" />
       <p align="center"><b>New Project</b></p>
     </td>
   </tr>
   <tr>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/5-Services-list.png?raw=true" alt="Services List" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/5-Services-list.png?raw=true" alt="Services List" />
       <p align="center"><b>Services List</b></p>
     </td>
     <td width="50%">
-      <img src="https://github.com/stackvo/stackvo/blob/main/docs/screenshots/6-Services-detail.png?raw=true" alt="Service Detail" />
+      <img src="https://github.com/fahrettinaksoy/stackvo/blob/main/docs/screenshots/6-Services-detail.png?raw=true" alt="Service Detail" />
       <p align="center"><b>Service Detail</b></p>
     </td>
   </tr>
@@ -300,9 +300,9 @@ This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for
 ## 🔗 Links
 
 - **Documentation:** [stackvo.github.io/stackvo](https://stackvo.github.io/stackvo/)
-- **GitHub:** [github.com/stackvo/stackvo](https://github.com/stackvo/stackvo)
-- **Issues:** [github.com/stackvo/stackvo/issues](https://github.com/stackvo/stackvo/issues)
-- **Discussions:** [github.com/stackvo/stackvo/discussions](https://github.com/stackvo/stackvo/discussions)
+- **GitHub:** [github.com/fahrettinaksoy/stackvo](https://github.com/fahrettinaksoy/stackvo)
+- **Issues:** [github.com/fahrettinaksoy/stackvo/issues](https://github.com/fahrettinaksoy/stackvo/issues)
+- **Discussions:** [github.com/fahrettinaksoy/stackvo/discussions](https://github.com/fahrettinaksoy/stackvo/discussions)
 - **Changelog:** [CHANGELOG.md](docs/en/changelog.md)
 
 ---
@@ -312,8 +312,8 @@ This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for
 For questions or issues:
 
 - 📖 Check the [Documentation](docs/en) pages
-- 🐛 Open an [Issue](https://github.com/stackvo/stackvo/issues)
-- 💬 Ask questions in [Discussions](https://github.com/stackvo/stackvo/discussions)
+- 🐛 Open an [Issue](https://github.com/fahrettinaksoy/stackvo/issues)
+- 💬 Ask questions in [Discussions](https://github.com/fahrettinaksoy/stackvo/discussions)
 - 📧 Read the [Support Guide](docs/en/community/support.md)
 
 ---

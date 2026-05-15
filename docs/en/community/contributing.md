@@ -9,7 +9,7 @@ Thanks for contributing to Stackvo! 🎉 This guide explains the entire contribu
 ### 1. Fork the Repository
 
 ```bash
-# Fork: https://github.com/stackvo/stackvo/fork
+# Fork: https://github.com/fahrettinaksoy/stackvo/fork
 
 # Clone
 git clone https://github.com/YOUR_USERNAME/stackvo.git
@@ -272,11 +272,11 @@ Contributors:
 ## Contact
 
 For your questions:
-- **GitHub Discussions:** [Join discussions](https://github.com/stackvo/stackvo/discussions)
-- **Issues:** [Ask a question](https://github.com/stackvo/stackvo/issues/new)
+- **GitHub Discussions:** [Join discussions](https://github.com/fahrettinaksoy/stackvo/discussions)
+- **Issues:** [Ask a question](https://github.com/fahrettinaksoy/stackvo/issues/new)
 
 ---
 
 ## License
 
-Your contributions are published under the [MIT License](https://github.com/stackvo/stackvo/blob/main/LICENSE).
+Your contributions are published under the [MIT License](https://github.com/fahrettinaksoy/stackvo/blob/main/LICENSE).

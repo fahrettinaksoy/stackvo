@@ -163,7 +163,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Links
 
-- [GitHub Repository](https://github.com/stackvo/stackvo)
+- [GitHub Repository](https://github.com/fahrettinaksoy/stackvo)
 - [Documentation](https://stackvo.github.io/stackvo/)
-- [Issues](https://github.com/stackvo/stackvo/issues)
-- [Releases](https://github.com/stackvo/stackvo/releases)
+- [Issues](https://github.com/fahrettinaksoy/stackvo/issues)
+- [Releases](https://github.com/fahrettinaksoy/stackvo/releases)

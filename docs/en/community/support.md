@@ -10,7 +10,7 @@ Ways to get support for Stackvo. This page explains in detail support channels s
 
 **Best option:** To ask questions, share ideas, and discuss.
 
-[💬 Go to Discussions →](https://github.com/stackvo/stackvo/discussions)
+[💬 Go to Discussions →](https://github.com/fahrettinaksoy/stackvo/discussions)
 
 **Categories:**
 - 💡 **Ideas** - Feature suggestions
@@ -22,7 +22,7 @@ Ways to get support for Stackvo. This page explains in detail support channels s
 
 **For bug reports and feature requests.**
 
-[Open Issue →](https://github.com/stackvo/stackvo/issues/new)
+[Open Issue →](https://github.com/fahrettinaksoy/stackvo/issues/new)
 
 **When to use:**
 - When you find a bug
@@ -255,13 +255,13 @@ Do you want to contribute to Stackvo?
     
     GitHub Issues
     
-    [Issues →](https://github.com/stackvo/stackvo/issues)
+    [Issues →](https://github.com/fahrettinaksoy/stackvo/issues)
 
 -   **💬 Discussions**
     
     Active discussions
     
-    [Discussions →](https://github.com/stackvo/stackvo/discussions)
+    [Discussions →](https://github.com/fahrettinaksoy/stackvo/discussions)
 
 -   **👥 Contributors**
     
@@ -303,10 +303,10 @@ Currently, premium support is not offered. All support is community-based.
 
 ### GitHub
 
-- **Repository:** [stackvo/stackvo](https://github.com/stackvo/stackvo)
-- **Issues:** [Bug reports](https://github.com/stackvo/stackvo/issues)
-- **Discussions:** [Q&A](https://github.com/stackvo/stackvo/discussions)
-- **Pull Requests:** [Contributions](https://github.com/stackvo/stackvo/pulls)
+- **Repository:** [fahrettinaksoy/stackvo](https://github.com/fahrettinaksoy/stackvo)
+- **Issues:** [Bug reports](https://github.com/fahrettinaksoy/stackvo/issues)
+- **Discussions:** [Q&A](https://github.com/fahrettinaksoy/stackvo/discussions)
+- **Pull Requests:** [Contributions](https://github.com/fahrettinaksoy/stackvo/pulls)
 
 ### Email
 

@@ -506,8 +506,8 @@ docker run --rm \
 
 ## Hala Çözülmedi mi?
 
-1. **GitHub Issues:** [Sorun bildir](https://github.com/stackvo/stackvo/issues/new)
-2. **Discussions:** [Tartışmalara katıl](https://github.com/stackvo/stackvo/discussions)
+1. **GitHub Issues:** [Sorun bildir](https://github.com/fahrettinaksoy/stackvo/issues/new)
+2. **Discussions:** [Tartışmalara katıl](https://github.com/fahrettinaksoy/stackvo/discussions)
 3. **Support:** [Destek al](support.md)
 
 **Issue açarken:**

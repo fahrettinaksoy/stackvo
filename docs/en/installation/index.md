@@ -54,7 +54,7 @@ If Docker is already installed on your system:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # 2. Configuration

@@ -14,7 +14,7 @@
         <v-icon>mdi-book-open-variant</v-icon>
       </v-btn>
 
-      <v-btn icon href="https://github.com/stackvo/stackvo" target="_blank" title="GitHub">
+      <v-btn icon href="https://github.com/fahrettinaksoy/stackvo" target="_blank" title="GitHub">
         <v-icon>mdi-github</v-icon>
       </v-btn>
 

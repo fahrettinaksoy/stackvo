@@ -40,7 +40,7 @@ Please read and follow our [Code of Conduct](docs/en/community/code-of-conduct.m
 
 ```bash
 # Clone the repository
-git clone https://github.com/stackvo/stackvo.git
+git clone https://github.com/fahrettinaksoy/stackvo.git
 cd stackvo
 
 # Copy environment file
@@ -265,7 +265,7 @@ docs: improve Quick Start guide
 
 ## 🐛 Reporting Bugs
 
-Use [GitHub Issues](https://github.com/stackvo/stackvo/issues) to report bugs.
+Use [GitHub Issues](https://github.com/fahrettinaksoy/stackvo/issues) to report bugs.
 
 **Before submitting:**
 
@@ -284,7 +284,7 @@ Use [GitHub Issues](https://github.com/stackvo/stackvo/issues) to report bugs.
 
 ## 💡 Suggesting Features
 
-We welcome feature suggestions! Open a [GitHub Discussion](https://github.com/stackvo/stackvo/discussions) or [Issue](https://github.com/stackvo/stackvo/issues).
+We welcome feature suggestions! Open a [GitHub Discussion](https://github.com/fahrettinaksoy/stackvo/discussions) or [Issue](https://github.com/fahrettinaksoy/stackvo/issues).
 
 **Good feature requests include:**
 
