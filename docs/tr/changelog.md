@@ -158,6 +158,6 @@ Format [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) standardına day
 ## Bağlantılar
 
 - [GitHub Repository](https://github.com/fahrettinaksoy/stackvo)
-- [Dokümantasyon](https://stackvo.github.io/stackvo/)
+- [Dokümantasyon](https://fahrettinaksoy.github.io/stackvo/)
 - [Sorunlar](https://github.com/fahrettinaksoy/stackvo/issues)
 - [Sürümler](https://github.com/fahrettinaksoy/stackvo/releases)

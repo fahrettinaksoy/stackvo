@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
 
       <!-- Primary Links -->
-      <v-btn icon href="https://stackvo.github.io/stackvo" target="_blank" title="Documentation">
+      <v-btn icon href="https://fahrettinaksoy.github.io/stackvo" target="_blank" title="Documentation">
         <v-icon>mdi-book-open-variant</v-icon>
       </v-btn>
 

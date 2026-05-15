@@ -2,7 +2,7 @@
 site_name: StackVo
 site_description: Modern LAMP ve MEAN stack'leri sunan Docker tabanlı yerel geliştirme ortamı. 40+ servis, multi-language desteği, Traefik reverse proxy
 site_author: StackVo Team
-site_url: https://stackvo.github.io/stackvo/
+site_url: https://fahrettinaksoy.github.io/stackvo/
 
 # Repository
 repo_name: fahrettinaksoy/stackvo

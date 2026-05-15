@@ -164,6 +164,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ## Links
 
 - [GitHub Repository](https://github.com/fahrettinaksoy/stackvo)
-- [Documentation](https://stackvo.github.io/stackvo/)
+- [Documentation](https://fahrettinaksoy.github.io/stackvo/)
 - [Issues](https://github.com/fahrettinaksoy/stackvo/issues)
 - [Releases](https://github.com/fahrettinaksoy/stackvo/releases)
