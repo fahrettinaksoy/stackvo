@@ -1,9 +1,14 @@
 name: Auto Changelog
 
+# Triggered when a release is published from the GitHub UI.
+# The user clicks "Draft a new release" → picks a tag (e.g. 1.0.19) → publishes.
+# This workflow then regenerates CHANGELOG.md, pushes it to main, and rewrites
+# the release body with the same content — so the release notes always reflect
+# the parsed conventional-commit history.
+
 on:
-  push:
-    tags:
-      - "*.*.*"
+  release:
+    types: [published]
 
 jobs:
   changelog:
@@ -17,29 +22,45 @@ jobs:
         with:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: main
 
-      - name: Get version from tag
+      - name: Read tag from release event
         id: version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        run: echo "VERSION=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
 
       - name: Generate Changelog
         run: |
           chmod +x docs/scripts/generate-changelog.sh
           ./docs/scripts/generate-changelog.sh ${{ steps.version.outputs.VERSION }}
 
-      - name: Commit and Push
+      - name: Extract section for this version
+        id: extract
+        run: |
+          VERSION="${{ steps.version.outputs.VERSION }}"
+          # Pull the block for this version from CHANGELOG.md (until the next "## [")
+          awk -v ver="$VERSION" '
+            $0 ~ "^## \\[" ver "\\]" { capture=1; print; next }
+            capture && /^## \[/ { exit }
+            capture { print }
+          ' CHANGELOG.md > release-notes.md
+          echo "Notes preview:"
+          head -40 release-notes.md
+
+      - name: Commit and Push CHANGELOG
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md docs/tr/changelog.md docs/en/changelog.md
-          git commit -m "docs: update changelog for ${{ steps.version.outputs.VERSION }}" || exit 0
-          git push origin HEAD:main
+          if git diff --staged --quiet; then
+            echo "No changelog changes to commit."
+          else
+            git commit -m "docs: update changelog for ${{ steps.version.outputs.VERSION }}"
+            git push origin HEAD:main
+          fi
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
-        with:
-          body_path: CHANGELOG.md
-          draft: false
-          prerelease: false
+      - name: Update GitHub Release notes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release edit "${{ steps.version.outputs.VERSION }}" \
+            --notes-file release-notes.md
