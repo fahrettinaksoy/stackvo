@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.2] - 2026-05-15
+
+### Documentation
+- update changelog for 1.0.1
+
+---
+
 ## [1.0.1] - 2026-05-15
 
 ### Documentation
@@ -14,7 +21,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update repo URL and clean up stackvo-ui references
 
 ---
-
 ## [1.0.18] - 2026-02-03
 
 ### Fixed
