@@ -50,6 +50,7 @@ generate_stackvo_ui_compose() {
       context: ../core/ui
       dockerfile: Dockerfile
     image: stackvo-ui:local
+    pull_policy: build
     container_name: "stackvo-ui"
     restart: unless-stopped
 

@@ -6,6 +6,9 @@
 # All generated files (root level)
 generated/
 
+# MkDocs local build output (CI deploys to GitHub Pages, never commit)
+site/
+
 # Docker volumes and data
 volumes/
 data/

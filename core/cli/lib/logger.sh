@@ -58,6 +58,36 @@ print_section() {
     echo ""
 }
 
+##
+# Verilen PID bitene kadar mesajla birlikte braille spinner gösterir.
+# Süreç tamamlanınca satırı temizleyip sürecin exit kodunu döndürür.
+# Kullanım:
+#   long_running_cmd &
+#   wait_with_spinner $! "Yükleniyor..."
+##
+wait_with_spinner() {
+    local pid=$1
+    local msg=$2
+    local frames=('⠋' '⠙' '⠹' '⠸' '⠼' '⠴' '⠦' '⠧' '⠇' '⠏')
+    local i=0
+    local delay=0.1
+
+    tput civis 2>/dev/null
+    trap 'tput cnorm 2>/dev/null' EXIT
+
+    while kill -0 "$pid" 2>/dev/null; do
+        printf "\r  ${BLUE}%s${NC} %s" "${frames[i]}" "$msg"
+        i=$(( (i + 1) % ${#frames[@]} ))
+        sleep "$delay"
+    done
+
+    tput cnorm 2>/dev/null
+    printf "\r\033[K"
+
+    wait "$pid" 2>/dev/null
+    return $?
+}
+
 print_done_box() {
     local title="$1"
     echo ""

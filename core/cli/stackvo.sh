@@ -3,6 +3,7 @@
 # Load common library for shared paths and variables
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$SCRIPT_DIR/lib/common.sh"
+source "$SCRIPT_DIR/lib/logger.sh"
 
 COMMAND=$1
 shift
@@ -105,36 +106,93 @@ case "$COMMAND" in
             echo "  + Including profile: $profile"
         done
         
-        # Use Docker Compose's native progress output
+        # Pretty UI — mirror install/generate style
+        MODE_LABEL="minimal (core only)"
+        case "$START_MODE" in
+            all)      MODE_LABEL="all (core + services + projects)" ;;
+            services) MODE_LABEL="services (core + services)" ;;
+            projects) MODE_LABEL="projects (core + projects)" ;;
+        esac
+
+        print_banner "Stackvo Başlatılıyor" "Mod: $MODE_LABEL"
+
+        LOG_DIR="$STACKVO_ROOT/logs"
+        mkdir -p "$LOG_DIR" 2>/dev/null
+        UP_LOG="$LOG_DIR/up-$(date +%Y%m%d-%H%M%S).log"
+
+        DC=(docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}")
+
+        print_section "Image'lar çekiliyor"
+        "${DC[@]}" $PROFILE_ARGS pull --quiet >>"$UP_LOG" 2>&1 &
+        if wait_with_spinner $! "Docker image'ları çekiliyor..."; then
+            log_success "Image'lar hazır"
+        else
+            log_warn "Bazı image'lar çekilemedi — lokal build kullanılacak"
+        fi
+
+        print_section "Image'lar build ediliyor"
+        "${DC[@]}" $PROFILE_ARGS build >>"$UP_LOG" 2>&1 &
+        if wait_with_spinner $! "stackvo-ui build ediliyor (ilk çalıştırmada uzun sürebilir)..."; then
+            log_success "Build tamamlandı"
+        else
+            log_error "Build başarısız — detay için: $UP_LOG"
+            exit 1
+        fi
+
+        print_section "Container'lar başlatılıyor"
+        "${DC[@]}" $PROFILE_ARGS up -d --remove-orphans >>"$UP_LOG" 2>&1 &
+        if wait_with_spinner $! "Container'lar ayağa kaldırılıyor..."; then
+            while IFS=$'\t' read -r name status; do
+                [ -z "$name" ] && continue
+                echo -e "  ${GREEN}✓${NC} $(printf '%-26s' "$name") $status"
+            done < <("${DC[@]}" ps --format '{{.Name}}\t{{.Status}}' 2>/dev/null)
+        else
+            log_error "Container başlatma başarısız — detay için: $UP_LOG"
+            exit 1
+        fi
+
+        print_done_box "Stackvo başarıyla başlatıldı"
         echo ""
-        echo "🚀 Stackvo Başlatılıyor (minimal mod)"
+        echo -e "  ${BLUE}→${NC} Dashboard : ${GREEN}https://stackvo.loc${NC}"
+        echo -e "  ${BLUE}→${NC} Traefik   : ${GREEN}https://traefik.stackvo.loc${NC}"
+        echo -e "  ${BLUE}→${NC} Log       : $UP_LOG"
         echo ""
-        
-        # Pull, build and start operations sequentially
-        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" $PROFILE_ARGS pull
-        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" $PROFILE_ARGS build
-        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" $PROFILE_ARGS up -d --remove-orphans
-        
-        echo ""
-        echo "✅ Stackvo started successfully!"
         ;;
 
     down)
+        print_banner "Stackvo Durduruluyor" "Profiles: services + projects"
+        LOG_DIR="$STACKVO_ROOT/logs"
+        mkdir -p "$LOG_DIR" 2>/dev/null
+        DOWN_LOG="$LOG_DIR/down-$(date +%Y%m%d-%H%M%S).log"
+
+        print_section "Container'lar durduruluyor"
+        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" --profile services --profile projects down >>"$DOWN_LOG" 2>&1 &
+        if wait_with_spinner $! "Servisler ve projeler durduruluyor..."; then
+            log_success "Tüm servis ve projeler durduruldu"
+        else
+            log_error "Durdurma başarısız — detay için: $DOWN_LOG"
+            exit 1
+        fi
+        print_done_box "Stackvo durduruldu"
         echo ""
-        echo "🛑 Stopping Stackvo..."
-        echo ""
-        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" --profile services --profile projects down
-        echo ""
-        echo "✅ All services and projects stopped successfully!"
         ;;
 
     restart)
+        print_banner "Stackvo Yeniden Başlatılıyor" "Profiles: core + services + projects"
+        LOG_DIR="$STACKVO_ROOT/logs"
+        mkdir -p "$LOG_DIR" 2>/dev/null
+        RESTART_LOG="$LOG_DIR/restart-$(date +%Y%m%d-%H%M%S).log"
+
+        print_section "Container'lar yeniden başlatılıyor"
+        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" --profile core --profile services --profile projects restart >>"$RESTART_LOG" 2>&1 &
+        if wait_with_spinner $! "Container'lar yeniden başlatılıyor..."; then
+            log_success "Tüm servisler yeniden başlatıldı"
+        else
+            log_error "Restart başarısız — detay için: $RESTART_LOG"
+            exit 1
+        fi
+        print_done_box "Stackvo yeniden başlatıldı"
         echo ""
-        echo "🔄 Restarting Stackvo..."
-        echo ""
-        docker compose --env-file "$STACKVO_ROOT/.env" "${COMPOSE_FILES[@]}" --profile core --profile services --profile projects restart
-        echo ""
-        echo "✅ All services restarted successfully!"
         ;;
 
     ps)
