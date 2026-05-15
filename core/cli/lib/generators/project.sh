@@ -99,21 +99,25 @@ process_all_projects() {
     # Process each project
     for project_path in "$projects_dir"/*; do
         [ ! -d "$project_path" ] && continue
-        
+
         local project_name=$(basename "$project_path")
         local project_json="$project_path/stackvo.json"
-        
+
+        echo "" >&2
+        echo -e "  ${BLUE}▸${NC} ${project_name}" >&2
+
         # Skip if stackvo.json doesn't exist
         if [ ! -f "$project_json" ]; then
-            log_warn "$project_name skipped: stackvo.json not found"
+            echo -e "    ${YELLOW}skipped${NC} — stackvo.json not found" >&2
             continue
         fi
-        
+
         # Process project
         if process_single_project "$project_name" "$project_path" "$project_json" "$HOST_ROOT_DIR" >> "$output"; then
             ((project_count++))
         fi
     done
+    echo "" >&2
     
     echo $project_count
 }
@@ -219,14 +223,14 @@ generate_single_dockerfile() {
 
         # Skip deprecated/removed extensions
         if is_deprecated_extension "$ext" "$php_version"; then
-            log_warn "[$project_name] Extension '$ext' is deprecated/removed in PHP $php_version"
+            echo -e "    ${YELLOW}⚠${NC}  Extension '$ext' is deprecated/removed in PHP $php_version" >&2
             ((count_skipped++))
             continue
         fi
 
         # Skip extensions requiring special setup
         if requires_special_setup "$ext"; then
-            log_warn "[$project_name] Extension '$ext' requires special setup (skipped)"
+            echo -e "    ${YELLOW}⚠${NC}  Extension '$ext' requires special setup (skipped)" >&2
             ((count_skipped++))
             continue
         fi
@@ -290,7 +294,7 @@ generate_single_dockerfile() {
 
     # One-line summary per project (visible by default)
     local total_added=$((count_standard + count_pecl))
-    log_success "$project_name ready (PHP $php_version, $web_server, ${total_added} ext: ${count_pecl} PECL, ${count_standard} std; ${count_builtin} built-in, ${count_skipped} skipped)"
+    echo -e "    ${GREEN}✓${NC}  PHP ${php_version} · ${web_server} · ${total_added} ext (${count_pecl} PECL, ${count_standard} std, ${count_builtin} built-in, ${count_skipped} skipped)" >&2
 }
 
 ##

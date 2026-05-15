@@ -85,14 +85,14 @@ cp .env.example .env
 ./stackvo.sh install
 
 # Kurulumu doğrulayın
-stackvo --help
+./stackvo.sh --help
 ```
 
 **Adım 3: Konfigürasyon Oluşturma**
 
 ```bash
 # Tüm konfigürasyonları oluşturun
-stackvo generate
+./stackvo.sh generate
 
 # Bu komut şunları oluşturur:
 # - generated/stackvo.yml (Traefik + UI)
@@ -104,11 +104,11 @@ stackvo generate
 
 ```bash
 # Core servisleri başlatın (Traefik + UI)
-stackvo up
+./stackvo.sh up
 
 # Servislerin başlamasını bekleyin (~30 saniye)
 # Durumu kontrol edin
-stackvo ps
+./stackvo.sh ps
 ```
 
 **Adım 5: Hosts Dosyası Ayarı**

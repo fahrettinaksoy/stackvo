@@ -26,7 +26,7 @@ Bu komut, `stackvo` komutunu `/usr/local/bin/` dizinine sembolik link olarak ekl
 **Doğrulama:**
 ```bash
 # Herhangi bir dizinden çalıştırın
-stackvo --help
+./stackvo.sh --help
 ```
 
 ---

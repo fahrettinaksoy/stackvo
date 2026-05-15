@@ -53,50 +53,60 @@ EOF
 ##
 main() {
     local MODE=$1
-    
-    log_info "Stackvo Generator (Bash - No PHP!)"
+
+    case "$MODE" in
+        projects)  print_banner "StackVo Generator" "Generating projects only" ;;
+        services)  print_banner "StackVo Generator" "Generating services only" ;;
+        *)         print_banner "StackVo Generator" "Generating all configurations" ;;
+    esac
+
     cd "$ROOT_DIR"
-    
-    # Load environment
     load_env
-    
+
     # Generate SSL certificates (regenerate to include all project domains)
     if [ "$MODE" != "projects" ] && [ "$MODE" != "services" ]; then
-        log_info "Generating SSL certificates..."
-        if bash "$CLI_DIR/utils/generate-ssl-certs.sh"; then
+        print_section "SSL certificates"
+        if bash "$CLI_DIR/utils/generate-ssl-certs.sh" >/dev/null 2>&1; then
             log_success "SSL certificates generated"
         else
-            log_warn "SSL certificate generation failed. You can generate them later with: bash cli/utils/generate-ssl-certs.sh"
+            log_warn "SSL certificate generation failed — run later: ./core/cli/utils/generate-ssl-certs.sh"
         fi
     fi
-    
+
     case "$MODE" in
         projects)
-            log_info "Generating projects only..."
+            print_section "Projects"
             generate_projects
-            log_success "Projects generation completed!"
+            print_done_box "Projects generation completed"
             ;;
         services)
-            log_info "Generating services only..."
+            print_section "Service configurations"
             generate_stackvo_ui_configs
             generate_module_configs
+
+            print_section "Compose & Traefik"
             generate_base_compose
             generate_traefik_config
             generate_traefik_routes
             generate_dynamic_compose
-            log_success "Services generation completed!"
+
+            print_done_box "Services generation completed"
             ;;
         *)
-            # Generate everything
+            print_section "Service configurations"
             generate_stackvo_ui_configs
             generate_module_configs
+
+            print_section "Compose & Traefik"
             generate_base_compose
             generate_traefik_config
             generate_traefik_routes
             generate_dynamic_compose
+
+            print_section "Projects"
             generate_projects
-            
-            log_success "Generation completed!"
+
+            print_done_box "Generation completed"
             ;;
     esac
 }

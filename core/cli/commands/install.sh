@@ -61,122 +61,102 @@ validate_docker_compose_version() {
     fi
 }
 
-echo "🔧 Installing Stackvo CLI..."
-echo ""
+print_banner "StackVo CLI Installer" "Local PHP Development Stack"
 
 # Check if running as root
 if [ "$EUID" -eq 0 ]; then
-    echo "⚠️  WARNING: Running as root (sudo)"
+    echo -e "${YELLOW}⚠  Running as root (sudo)${NC}"
     echo "   This may cause issues with Homebrew on macOS."
-    echo "   Recommended: Run without sudo, it will ask for password when needed."
+    echo "   Recommended: run without sudo — you'll be prompted when needed."
     echo ""
 fi
 
-# Fix CLI script permissions first
-fix_cli_permissions
+print_section "Preparing environment"
 
-# Check Docker Compose version
+fix_cli_permissions
 validate_docker_compose_version
 
-# Create symlink (requires sudo)
+print_section "Registering system command"
+
 if [ "$EUID" -eq 0 ]; then
-    # Already running as root
     ln -sf "$CLI_DIR/stackvo.sh" /usr/local/bin/stackvo
+    log_success "Symlink created at /usr/local/bin/stackvo"
 else
-    # Request sudo for this specific command
-    log_info "Creating system command (requires sudo)..."
-    sudo ln -sf "$CLI_DIR/stackvo.sh" /usr/local/bin/stackvo
+    log_info "Creating system command (sudo required)..."
+    if sudo ln -sf "$CLI_DIR/stackvo.sh" /usr/local/bin/stackvo; then
+        log_success "Symlink created at /usr/local/bin/stackvo"
+    else
+        log_warn "Could not create symlink — the 'stackvo' shortcut will not be available"
+    fi
 fi
 
-# Generate SSL certificates automatically
-log_info "Generating SSL certificates..."
-if bash "$CLI_DIR/utils/generate-ssl-certs.sh" 2>&1 | grep -E '^\[|^🔐|^✅|^📁|^📌'; then
-    log_success "SSL certificates generated successfully"
-    
-    # Fix ownership of generated directory
+print_section "Generating SSL certificates"
+
+if bash "$CLI_DIR/utils/generate-ssl-certs.sh" >/dev/null 2>&1; then
+    log_success "SSL certificates generated"
     if [ -d "$STACKVO_ROOT/generated" ]; then
         fix_directory_permissions "$STACKVO_ROOT/generated"
     fi
 else
-    log_warn "SSL certificate generation failed. You can generate them later with: ./cli/utils/generate-ssl-certs.sh"
+    log_warn "SSL certificate generation failed — run later: ./core/cli/utils/generate-ssl-certs.sh"
 fi
 
-# Create Docker network if it doesn't exist
-log_info "Creating Docker network..."
+print_section "Configuring Docker network"
 
-# Check if Docker daemon is running
 if ! docker info >/dev/null 2>&1; then
-    log_error "Docker daemon is not running!"
-    log_info "Please start Docker Desktop and try again."
+    log_error "Docker daemon is not running. Please start Docker Desktop and try again."
     exit 1
 fi
 
 if docker network inspect stackvo-net >/dev/null 2>&1; then
     log_success "Docker network 'stackvo-net' already exists"
+elif docker network create stackvo-net >/dev/null 2>&1; then
+    log_success "Docker network 'stackvo-net' created"
 else
-    if docker network create stackvo-net 2>&1; then
-        log_success "Docker network 'stackvo-net' created"
-    else
-        log_error "Failed to create Docker network!"
-        log_info "Please ensure Docker is running and try again."
-        exit 1
-    fi
+    log_error "Failed to create Docker network. Ensure Docker is running and try again."
+    exit 1
 fi
 
-# Create projects directory if it doesn't exist
-log_info "Creating projects directory..."
+print_section "Creating project directories"
+
 if [ ! -d "$STACKVO_ROOT/projects" ]; then
     mkdir -p "$STACKVO_ROOT/projects"
-    
-    # Fix permissions using centralized function
     fix_directory_permissions "$STACKVO_ROOT/projects"
-    
-    log_success "Projects directory created"
+    log_success "projects/ created"
 else
-    log_success "Projects directory already exists"
+    log_success "projects/ already exists"
 fi
 
-# Create logs directory if it doesn't exist
-log_info "Creating logs directory..."
 if [ ! -d "$STACKVO_ROOT/logs" ]; then
-    mkdir -p "$STACKVO_ROOT/logs/services"
-    mkdir -p "$STACKVO_ROOT/logs/projects"
-    
-    # Fix permissions using centralized function
+    mkdir -p "$STACKVO_ROOT/logs/services" "$STACKVO_ROOT/logs/projects"
     fix_directory_permissions "$STACKVO_ROOT/logs"
-    
-    log_success "Logs directory created"
+    log_success "logs/ created"
 else
-    log_success "Logs directory already exists"
+    log_success "logs/ already exists"
 fi
 
+print_done_box "Installation complete"
+echo -e "${BLUE}── Available Commands ${NC}"
 echo ""
-log_success "Installation completed. Available commands:"
+printf "   %-32s %s\n" "./stackvo.sh generate"        "Generate all configuration files"
+printf "   %-32s %s\n" "./stackvo.sh up"              "Start all Stackvo services"
+printf "   %-32s %s\n" "./stackvo.sh down"            "Stop all Stackvo services"
+printf "   %-32s %s\n" "./stackvo.sh restart"         "Restart all Stackvo services"
+printf "   %-32s %s\n" "./stackvo.sh ps"              "List running containers"
+printf "   %-32s %s\n" "./stackvo.sh logs [service]"  "View service logs"
+printf "   %-32s %s\n" "./stackvo.sh pull"            "Pull latest Docker images"
+printf "   %-32s %s\n" "./stackvo.sh --help"          "Show all available commands"
 echo ""
-echo "📋 Available Commands:"
+echo -e "${BLUE}── Quick Start ${NC}"
 echo ""
-echo "  ./core/cli/stackvo.sh generate          → Generate all configuration files"
-echo "  ./core/cli/stackvo.sh up                → Start all Stackvo services"
-echo "  ./core/cli/stackvo.sh down              → Stop all Stackvo services"
-echo "  ./core/cli/stackvo.sh restart           → Restart all Stackvo services"
-echo "  ./core/cli/stackvo.sh ps                → List running containers"
-echo "  ./core/cli/stackvo.sh logs [service]    → View service logs"
-echo "  ./core/cli/stackvo.sh pull              → Pull latest Docker images"
-echo "  ./core/cli/stackvo.sh --help            → Show all available commands"
+printf "   ${YELLOW}1.${NC} %-28s →  %s\n" "Generate configurations" "./stackvo.sh generate"
+printf "   ${YELLOW}2.${NC} %-28s →  %s\n" "Start services"          "./stackvo.sh up"
+printf "   ${YELLOW}3.${NC} %-28s →  %s\n" "StackVo dashboard"       "https://stackvo.loc"
+printf "   ${YELLOW}4.${NC} %-28s →  %s\n" "Traefik dashboard"       "https://traefik.stackvo.loc"
 echo ""
-echo "🚀 Quick Start:"
+echo -e "${BLUE}── Resources ${NC}"
 echo ""
-echo "  1. Generate configurations:"
-echo "     ./core/cli/stackvo.sh generate"
-echo ""
-echo "  2. Start services:"
-echo "     ./core/cli/stackvo.sh up"
-echo ""
-echo "  3. StackVo dashboard:"
-echo "     https://stackvo.loc"
-echo ""
-echo "  4. Traefik dashboard:"
-echo "     https://traefik.stackvo.loc"
-echo ""
-echo "📖 For more information, run: ./core/cli/stackvo.sh --help"
+printf "   %-12s %s\n" "Docs:"   "https://fahrettinaksoy.github.io/stackvo/"
+printf "   %-12s %s\n" "GitHub:" "https://github.com/fahrettinaksoy/stackvo"
+printf "   %-12s %s\n" "Help:"   "./stackvo.sh --help"
 echo ""

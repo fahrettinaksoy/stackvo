@@ -26,7 +26,7 @@ This command adds the `stackvo` command as a symbolic link to the `/usr/local/bi
 **Verification:**
 ```bash
 # Run from any directory
-stackvo --help
+./stackvo.sh --help
 ```
 
 ---

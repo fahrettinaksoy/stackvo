@@ -37,3 +37,31 @@ log_error() {
 log_warn() {
     echo -e "${YELLOW}[WARN]${NC} $1" >&2
 }
+
+# UI helpers — visual structure for command output
+
+print_banner() {
+    local title="$1"
+    local subtitle="$2"
+    echo ""
+    echo -e "${BLUE}╔═══════════════════════════════════════════════════════════════╗${NC}"
+    printf "${BLUE}║${NC}  ${GREEN}%-60s${NC} ${BLUE}║${NC}\n" "$title"
+    if [ -n "$subtitle" ]; then
+        printf "${BLUE}║${NC}  %-60s ${BLUE}║${NC}\n" "$subtitle"
+    fi
+    echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════╝${NC}"
+}
+
+print_section() {
+    echo ""
+    echo -e "${BLUE}── $1 ${NC}"
+    echo ""
+}
+
+print_done_box() {
+    local title="$1"
+    echo ""
+    echo -e "${GREEN}╔═══════════════════════════════════════════════════════════════╗${NC}"
+    printf "${GREEN}║${NC}  ${GREEN}✓ %-58s${NC} ${GREEN}║${NC}\n" "$title"
+    echo -e "${GREEN}╚═══════════════════════════════════════════════════════════════╝${NC}"
+}

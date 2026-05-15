@@ -85,14 +85,14 @@ cp .env.example .env
 ./stackvo.sh install
 
 # Verify installation
-stackvo --help
+./stackvo.sh --help
 ```
 
 **Step 3: Generate Configuration**
 
 ```bash
 # Generate all configurations
-stackvo generate
+./stackvo.sh generate
 
 # This will create:
 # - generated/stackvo.yml (Traefik + UI)
@@ -104,11 +104,11 @@ stackvo generate
 
 ```bash
 # Start core services (Traefik + UI)
-stackvo up
+./stackvo.sh up
 
 # Wait for services to start (~30 seconds)
 # Check status
-stackvo ps
+./stackvo.sh ps
 ```
 
 **Step 5: Configure Hosts File**
@@ -187,7 +187,7 @@ echo "127.0.0.1  myproject.loc" | sudo tee -a /etc/hosts
 ./stackvo.sh uninstall             # Uninstall Stackvo
 ```
 
-> **Note:** After running `./stackvo.sh install`, you can use `stackvo` command directly from anywhere:
+> **Note:** After running `./stackvo.sh install`, you can use the `stackvo` command directly from anywhere:
 >
 > ```bash
 > stackvo up
