@@ -1,30 +1,59 @@
-/vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
+###################################################################
+# STACKVO .gitignore
+# Generated files that should not be committed to git
+###################################################################
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# All generated files (root level)
+generated/
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
+# Docker volumes and data
+volumes/
+data/
+tools-data/
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+# Environment-specific files (optional - uncomment if needed)
+# .env
 
-storage/*.key
+# UI files
+core/ui/node_modules/
+core/ui/yarn-error.log
+core/ui/yarn.lock
+core/ui/package-lock.json
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Cache
+cache/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# venv files
+venv/
+
+# Environment files
 .env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
 
-/public/build
-/storage/pail
-.env.backup
-.env.production
-.phpactor.json
-auth.json
+# Project-specific data (optional - uncomment if you want to ignore project files)
+projects/
+projects/*
+projects/*/
+
+# MkDocs build output
+site/

@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# CI/CD
+.github
+
+# Docs
+*.md
+!README.md
+CHANGELOG.md
+
+# Logs
+logs/
+*.log
+
+# Node
+node_modules/
+npm-debug.log
+.npm
+
+# Build output
+dist/
+client/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-compose*.yml
+Dockerfile.dev
