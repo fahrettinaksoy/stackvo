@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.0.1] - 2026-05-15
+
+### Documentation
+- replace remaining stackvo.github.io URLs with new GitHub Pages host
+- update repo URL and clean up stackvo-ui references
+
+---
+
 ## [1.0.18] - 2026-02-03
 
 ### Fixed
@@ -18,7 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update changelog for 1.0.17
 
 ---
-
 ## [1.0.17] - 2026-01-26
 
 ### Added

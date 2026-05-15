@@ -13,6 +13,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.0.1] - 2026-05-15
+
+### Documentation
+- replace remaining stackvo.github.io URLs with new GitHub Pages host
+- update repo URL and clean up stackvo-ui references
+
+---
+
 
 ---
 
