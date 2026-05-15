@@ -13,6 +13,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+## [1.0.4] - 2026-05-15
+
+### Documentation
+- update changelog for 1.0.3
+
+---
+
 ## [1.0.3] - 2026-05-15
 
 ### Documentation
@@ -20,6 +27,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ---
 
+
+---
 
 ---
 
