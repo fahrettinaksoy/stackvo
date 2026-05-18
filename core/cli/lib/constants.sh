@@ -38,3 +38,7 @@ readonly CONST_DEFAULT_NETWORK="stackvo-net"
 # Stackvo Config Directory
 readonly CONST_STACKVO_CONFIG_DIR=".stackvo"
 
+# Custom config filenames
+readonly CONST_CONFIG_NGINX="nginx.conf"
+readonly CONST_CONFIG_APACHE="apache.conf"
+
